@@ -1,0 +1,61 @@
+{
+    "dishes": [
+        {
+            "image": "https://www.mothersrecipe.com/wp-content/uploads/2019/04/murg-mussallam.jpg",
+            "name": "Murg Musallam",
+            "price": "400"
+        },
+        {
+            "image": "https://www.tamingtwins.com/wp-content/uploads/2019/06/paneer-tikka-recipe-4.jpg",
+            "name": "Paneer Tikka",
+            "price": "500"
+        },
+        {
+            "image": "https://www.indianhealthyrecipes.com/wp-content/uploads/2019/02/chicken-biryani-recipe.jpg",
+            "name": "Chicken Biryani",
+            "price": "250"
+        }
+    ],
+    "specials": [
+        {
+            "image": "https://www.mothersrecipe.com/wp-content/uploads/2019/04/murg-mussallam.jpg",
+            "name": "Murg Musallam",
+            "price": "400"
+        },
+        {
+            "image": "https://www.tamingtwins.com/wp-content/uploads/2019/06/paneer-tikka-recipe-4.jpg",
+            "name": "Paneer Tikka",
+            "price": "500"
+        },
+        {
+            "image": "https://www.indianhealthyrecipes.com/wp-content/uploads/2019/02/chicken-biryani-recipe.jpg",
+            "name": "Chicken Biryani",
+            "price": "250"
+        },
+        {
+            "image": "https://static.toiimg.com/thumb/52568357.cms?imgsize=158081&width=800&height=800",
+            "name": "Mutton Biryani",
+            "price": "300"
+        },
+        {
+            "image": "https://cdn1.foodviva.com/static-content/food-images/rice-recipes/vegetable-pulav-recipe/vegetable-pulav-recipe.jpg",
+            "name": "Veg Pulav",
+            "price": "100"
+        },
+        {
+            "image": "https://www.indianhealthyrecipes.com/wp-content/uploads/2014/09/butter-chicken-500x500.jpg",
+            "name": "Butter Chicken",
+            "price": "300"
+        },
+        {
+            "image": "https://www.madrasi.info/image/mutton-paaya.jpg",
+            "name": "Paaya",
+            "price": "350"
+        },
+        {
+            "image": "https://www.kitchensanctuary.com/wp-content/uploads/2015/02/Chicken-Shawarma-square-FS-57.jpg",
+            "name": "Chicken Shawarman",
+            "price": "60"
+        }
+    ]
+}
