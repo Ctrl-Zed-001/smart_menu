@@ -14,7 +14,7 @@ const Homepage = () => {
     useEffect(
         () => {
             const getData = async () => {
-                const req = await fetch('http://localhost:3000/data.json').then(data => data.json())
+                const req = await fetch(`${window.location.href}/data.json`).then(data => data.json())
                 setSpecials(req.specials)
                 setDishes(req.dishes)
             }
@@ -93,7 +93,7 @@ const Homepage = () => {
                         <button className="btn btn-theme rounded-pill fw-bold category_toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             <i className="fas fa-utensils"></i> menu
                     </button>
-                        <ul class="dropdown-menu">
+                        <ul className="dropdown-menu">
                             {
                                 specials.map((special, index) => <li key={index}>{special.name}</li>)
                             }
