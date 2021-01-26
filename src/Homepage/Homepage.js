@@ -5,6 +5,7 @@ import 'swiper/swiper-bundle.css'
 import DishBox from '../Components/DishBox';
 import SlideContent from '../Components/SlideContent';
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from "react-router-dom"
 
 SwiperCore.use([Virtual]);
 
@@ -104,6 +105,10 @@ const Homepage = () => {
                 </div>
 
             </div>
+
+            <Link to="/table">
+                <button className="btn btn-primary">go to table</button>
+            </Link>
         </section>
     )
 }
