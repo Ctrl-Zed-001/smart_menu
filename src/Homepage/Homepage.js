@@ -1,25 +1,27 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import SwiperCore, { Virtual } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css'
 import DishBox from '../Components/DishBox';
-
 import SlideContent from '../Components/SlideContent';
+import { useDispatch, useSelector } from 'react-redux'
 
 SwiperCore.use([Virtual]);
 
 const Homepage = () => {
-    const [specials, setSpecials] = useState([])
-    const [dishes, setDishes] = useState([])
+    const dishes = useSelector(state => state.dishes.allDishes)
+    const specials = useSelector(state => state.dishes.specials)
+    const bestSelling = useSelector(state => state.dishes.bestSelling)
+    const dispatch = useDispatch()
 
     useEffect(
         () => {
             const getData = async () => {
                 const req = await fetch(`${window.location.href}/data.json`).then(data => data.json())
-                setSpecials(req.specials)
-                setDishes(req.dishes)
+                dispatch({ type: 'GETALLDATA', payload: req })
             }
             getData()
-        }, []
+        }, [dispatch]
     )
 
     return (
@@ -32,7 +34,7 @@ const Homepage = () => {
                     {
                         specials.length === 0 ?
                             <></> :
-                            <Swiper spaceBetween={10} slidesPerView={2} virtual>
+                            <Swiper spaceBetween={10} slidesPerView={3} virtual>
                                 {
                                     specials.map((special, index) => {
                                         return (
@@ -50,7 +52,7 @@ const Homepage = () => {
                 <div className="todays_special p-3 ps-0">
                     <h6 className="fw-bold">BEST SELLING</h6>
                     {
-                        specials.length === 0 ?
+                        bestSelling.length === 0 ?
                             <></> :
                             <Swiper spaceBetween={10} slidesPerView={2} virtual>
                                 {

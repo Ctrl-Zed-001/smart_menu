@@ -7,7 +7,7 @@ const App = () => {
     return (
         <Router>
             <Route exact path="/"><Homepage /></Route>
-            <Route exact path="/details"><Details /></Route>
+            <Route exact path="/:dish_id"><Details /></Route>
         </Router>
     )
 }

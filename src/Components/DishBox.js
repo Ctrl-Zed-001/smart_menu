@@ -1,12 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const DishBox = () => {
+const DishBox = ({ dish }) => {
     return (
         <div className="dish_box">
             <div className="card">
                 <div className="card-body">
-                    <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2014/09/butter-chicken-500x500.jpg" alt="" className="img-fluid" />
-                    <h6>Murg musallam</h6>
+                    <img src={dish.image} alt="" className="img-fluid" />
+                    <h6>
+                        <Link to={`/${dish.id}`}>{dish.name}</Link>
+                    </h6>
+                    <p>Rs. {dish.price}</p>
+                    <button className="btn btn-theme btn-sm rounded-circle"><i className="fas fa-plus"></i></button>
                 </div>
             </div>
         </div>
