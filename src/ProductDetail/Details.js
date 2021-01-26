@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
 const Details = () => {
     const [selectedDish, setSelectedDish] = useState({})
     const { dish_id } = useParams()
     const dishes = useSelector(state => state.dishes.allDishes)
+    const history = useHistory()
 
     useEffect(
         () => {
@@ -18,8 +20,10 @@ const Details = () => {
         <section className="dish_detail">
             <div className="container-fluid">
 
-                {/* DISH BANNER IMAGE */}
+                <i onClick={() => history.goBack()} className="fas fa-arrow-left"></i>
 
+                {/* DISH BANNER IMAGE */}
+                <img src={selectedDish.image} alt="" className="img-fluid" />
                 {/* DISH DETAILS */}
                 <h5>{selectedDish.name} <span className="text-success"> {selectedDish.veg ? "Veg" : "Non Veg"} </span> </h5>
                 <p>Category</p>
