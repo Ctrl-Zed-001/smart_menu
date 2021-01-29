@@ -7,7 +7,6 @@ const TablePage = () => {
     const history = useHistory()
     const dishes = useSelector(state => state.table.dishes)
     const total = useSelector(state => state.table.total)
-
     return (
         <section className="table_page">
             <div className="container-fluid">
@@ -18,7 +17,7 @@ const TablePage = () => {
                         <p>Nothing on your table!! :(</p> :
                         <>
                             {
-                                dishes.map((dish, index) => <TableItem key={index} dish={dish} />)
+                                dishes.map((dish, index) => <TableItem key={index} index={index} dish={dish} />)
                             }
                             <h5>Your total = {total}</h5>
                         </>
