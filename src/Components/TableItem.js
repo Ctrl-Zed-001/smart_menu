@@ -1,13 +1,15 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 
 const TableItem = ({ index, dish }) => {
+    const dispatch = useDispatch()
 
     const onPlusClick = (index) => {
-        console.log(index)
+        dispatch({ type: "ADDQUANTITY", payload: index })
     }
 
     const onMinusClick = (index) => {
-        console.log(index)
+        dispatch({ type: "REDUCEQUANTITY", payload: index })
     }
 
 
@@ -23,11 +25,11 @@ const TableItem = ({ index, dish }) => {
                 </div>
                 <div className="col-3">
                     <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                        <button onClick={() => onPlusClick(index)} type="button" className="btn btn-add">
+                        <button onClick={() => onMinusClick(index)} type="button" className="btn btn-add">
                             <i className="fas fa-minus"></i>
                         </button>
                         <p className="dish_counter">{dish.quantity}</p>
-                        <button onClick={() => onMinusClick(index)} type="button" className="btn btn-minus">
+                        <button onClick={() => onPlusClick(index)} type="button" className="btn btn-minus">
                             <i className="fas fa-plus"></i>
                         </button>
                     </div>

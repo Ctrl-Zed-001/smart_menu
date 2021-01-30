@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import { useDispatch } from "react-redux"
 
 const Details = () => {
     const [selectedDish, setSelectedDish] = useState({})
     const { dish_id } = useParams()
     const dishes = useSelector(state => state.dishes.allDishes)
     const history = useHistory()
+    const dispatch = useDispatch()
 
     useEffect(
         () => {
@@ -16,6 +18,11 @@ const Details = () => {
             setSelectedDish(selection[0])
         }, [dish_id, dishes]
     )
+
+    const addToTable = () => {
+        dispatch({ type: "ADDDISH", payload: selectedDish })
+    }
+
     return (
         <section className="dish_detail">
             <div className="container-fluid">
@@ -30,7 +37,7 @@ const Details = () => {
                 <p className="text-danger">Rs. {selectedDish.price}</p>
 
                 {/* ADD TO TABLE BUTTON */}
-                <button className="btn btn-theme">add to table</button>
+                <button className="btn btn-theme" onClick={addToTable} >add to table</button>
 
             </div>
         </section>
