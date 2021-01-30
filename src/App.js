@@ -7,7 +7,6 @@ import TablePage from './TablePage/TablePage'
 import AllDishes from './Dashboard/AllDishes'
 import NewDish from './Dashboard/NewDish'
 import EditDish from "./Dashboard/EditDish"
-import DishDetail from './Dashboard/DishDetail'
 import Error from './Error'
 
 
@@ -22,7 +21,6 @@ const App = () => {
                 <Route exact path="/admin/allDishes"><AllDishes /></Route>
                 <Route exact path="/admin/newDish"><NewDish /></Route>
                 <Route exact path="/admin/editDish"><EditDish /></Route>
-                <Route exact path="/dishDetail"><DishDetail /></Route>
                 <Route><Error /></Route>
             </Switch>
         </Router>
