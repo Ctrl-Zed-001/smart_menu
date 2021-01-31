@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import DishBox from '../Components/DishBox'
+import { Link } from 'react-router-dom'
 
 const AllDishes = () => {
 
@@ -60,7 +61,9 @@ const AllDishes = () => {
                     }
                 </div>
             </div>
-            <button className="btn btn-theme position-fixed bottom-0 w-100">add new dish</button>
+            <Link to="/admin/newDish">
+                <button className="btn btn-theme position-fixed bottom-0 w-100">add new dish</button>
+            </Link>
         </section>
     )
 }
