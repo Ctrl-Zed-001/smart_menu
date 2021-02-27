@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
 :root{
     --theme: #CD332E;
-    --themgradient: linear-gradient(45deg, #d92662 0%, #e23744 100%)
+    --themegradient: linear-gradient(45deg, #d92662 0%, #e23744 100%)
 }
 body{
     font-family: 'Lexend Deca', sans-serif;
@@ -51,13 +51,13 @@ body{
 .btn-theme:active,
 .btn-theme:focus,
 .btn-theme:hover{
-    background-color: var(--theme);
+    background: var(--themegradient);
     color: white;
 }
 
 /* PAGE HEADER */
 .page_header{
-    background: var(--themgradient);
+    background: var(--themegradient);
     z-index: 100;
 }
 

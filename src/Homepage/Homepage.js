@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import SwiperCore, { Virtual } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css'
@@ -6,6 +6,7 @@ import DishBox from '../Components/DishBox';
 import SlideContent from '../Components/SlideContent';
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from "react-router-dom"
+import DishModal from '../Components/DishModal';
 
 SwiperCore.use([Virtual]);
 
@@ -13,6 +14,7 @@ const Homepage = () => {
     const dishes = useSelector(state => state.dishes.allDishes)
     const specials = useSelector(state => state.dishes.specials)
     const bestSelling = useSelector(state => state.dishes.bestSelling)
+    const [selectedDish, setSelectedDish] = useState({})
     const dispatch = useDispatch()
 
     useEffect(
@@ -24,6 +26,10 @@ const Homepage = () => {
             getData()
         }, [dispatch]
     )
+
+    const selectDish = (dish) => {
+        setSelectedDish(dish)
+    }
 
     return (
         <section className="homepage">
@@ -93,7 +99,7 @@ const Homepage = () => {
                             dishes.map((dish, index) => {
                                 return (
                                     <div key={index} className="col-6 col-md-3 mb-4">
-                                        <DishBox dish={dish} />
+                                        <DishBox selectDish={selectDish} dish={dish} />
                                     </div>
                                 )
                             })
@@ -110,6 +116,8 @@ const Homepage = () => {
                     <i className="fas fa-shopping-basket text-white"></i>
                 </Link>
             </button>
+
+            <DishModal dish={selectedDish} />
 
         </section>
     )
