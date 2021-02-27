@@ -27,15 +27,26 @@ const Homepage = () => {
 
     return (
         <section className="homepage">
-            <div className="container-fluid">
+            {/* PAGE HEADER */}
+            <div className="page_header p-2 position-fixed w-100">
+                <h1 className="text-white">Smart Menu</h1>
+                <div className="mb-3">
+                    <input type="text" className="form-control rounded shadow-sm mt-3 border-0" placeholder="search by dish name..." />
+                </div>
+            </div>
+
+            {/* CATEGORY STICKY BAR */}
+
+            {/* MAIN CONTAINER */}
+            <div className="container-fluid main_container">
 
                 {/* TODAYS SPECIAL */}
-                <div className="todays_special p-3 ps-0">
-                    <h6 className="fw-bold">TODAYS SPECIAL</h6>
+                <div className="todays_special">
+                    <h5 className="section_title mb-3">TODAYS SPECIAL</h5>
                     {
                         specials.length === 0 ?
                             <></> :
-                            <Swiper spaceBetween={10} slidesPerView={3} virtual>
+                            <Swiper spaceBetween={10} slidesPerView={1.25} centeredSlides={true} virtual>
                                 {
                                     specials.map((special, index) => {
                                         return (
@@ -50,14 +61,14 @@ const Homepage = () => {
                 </div>
 
                 {/* TOP SELLING */}
-                <div className="todays_special p-3 ps-0">
-                    <h6 className="fw-bold">BEST SELLING</h6>
+                <div className="todays_special">
+                    <h5 className="section_title mb-3">TOP SELLING</h5>
                     {
-                        bestSelling.length === 0 ?
+                        specials.length === 0 ?
                             <></> :
-                            <Swiper spaceBetween={10} slidesPerView={2} virtual>
+                            <Swiper spaceBetween={10} slidesPerView={1.25} centeredSlides={true} virtual>
                                 {
-                                    specials.map((special, index) => {
+                                    bestSelling.map((special, index) => {
                                         return (
                                             <SwiperSlide key={index} virtualIndex={index}>
                                                 <SlideContent special={special} />
@@ -71,11 +82,11 @@ const Homepage = () => {
 
                 {/* ALL DISHES WITH PAGINATION & SEARCH*/}
                 <div className="menu_section">
-                    <h6 className="fw-bold">ALL DISHES</h6>
-                    <div className="veg_toggle d-flex">
+                    <h5 className="section_title mb-3">STARTERS</h5>
+                    {/* <div className="veg_toggle d-flex">
                         <input type="checkbox" id="switch" /><label className="mt-1" htmlFor="switch"></label>
                         <p className="ms-3">Veg Only</p>
-                    </div>
+                    </div> */}
 
                     <div className="row">
                         {
@@ -90,25 +101,16 @@ const Homepage = () => {
                     </div>
                 </div>
 
-                {/* CATEGORY POPUP */}
-                <div className="menu_categories">
-                    <div className="btn-group dropup">
-                        <button className="btn btn-theme rounded-pill fw-bold category_toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i className="fas fa-utensils"></i> menu
-                    </button>
-                        <ul className="dropdown-menu">
-                            {
-                                specials.map((special, index) => <li key={index}>{special.name}</li>)
-                            }
-                        </ul>
-                    </div>
-                </div>
 
             </div>
 
-            <Link to="/table">
-                <button className="btn btn-primary">go to table</button>
-            </Link>
+
+            <button className="table-button btn btn-theme rounded-circle py-2">
+                <Link to="/table">
+                    <i className="fas fa-shopping-basket text-white"></i>
+                </Link>
+            </button>
+
         </section>
     )
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { useDispatch } from "react-redux"
 
 const DishBox = ({ dish }) => {
@@ -10,16 +9,17 @@ const DishBox = ({ dish }) => {
     }
 
     return (
-        <div className="dish_box">
-            <div className="card">
-                <div className="card-body">
-                    <img src={dish.image} alt="" className="img-fluid" />
-                    <h6>
-                        <Link to={`/dish/${dish.id}`}>{dish.name}</Link>
-                    </h6>
-                    <p>Rs. {dish.price}</p>
-                    <button onClick={() => addToTable(dish)} className="btn btn-theme btn-sm rounded-circle"><i className="fas fa-plus"></i></button>
+        <div className="dish_box shadow-sm">
+            <div className="card border-0 rounded">
+                <div className="food_image" style={{ backgroundImage: `url(${dish.image})`, backgroundSize: 'cover', height: '6.5rem', width: '100%' }}>
+                    <div className="badge bg-secondary ms-1"><i className="far fa-clock"></i> 15-20 min</div>
                 </div>
+                <div className="card-body pb-0">
+                    <h6 className="mb-1">{dish.name}</h6>
+                    <div className="col"><p className="text-secondary price mb-0"><i className="fas fa-rupee-sign"></i> {dish.price}</p></div>
+
+                </div>
+                <button onClick={() => addToTable(dish)} className="btn btn-link text-danger">add to table</button>
             </div>
         </div>
     )
