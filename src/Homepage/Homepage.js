@@ -14,6 +14,7 @@ const Homepage = () => {
     const dishes = useSelector(state => state.dishes.allDishes)
     const specials = useSelector(state => state.dishes.specials)
     const bestSelling = useSelector(state => state.dishes.bestSelling)
+    const dishesOnTable = useSelector(state => state.table.dishes)
     const [selectedDish, setSelectedDish] = useState({})
     const dispatch = useDispatch()
 
@@ -34,7 +35,7 @@ const Homepage = () => {
     return (
         <section className="homepage">
             {/* PAGE HEADER */}
-            <div className="page_header p-2 position-fixed w-100">
+            <div className="page_header p-2 position-fixed w-100 shadow">
                 <h1 className="text-white">Smart Menu</h1>
                 <div className="mb-3">
                     <input type="text" className="form-control rounded shadow-sm mt-3 border-0" placeholder="search by dish name..." />
@@ -88,13 +89,21 @@ const Homepage = () => {
 
                 {/* ALL DISHES WITH PAGINATION & SEARCH*/}
                 <div className="menu_section">
-                    <h5 className="section_title mb-3">STARTERS</h5>
+                    <div className="d-flex justify-content-between align-items-center">
+                        <h5 className="section_title">STARTERS</h5>
+                        <select className="form-select rounded-pill border-0 w-50 shadow-sm" aria-label="Default select example">
+                            <option>choose category</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
                     {/* <div className="veg_toggle d-flex">
                         <input type="checkbox" id="switch" /><label className="mt-1" htmlFor="switch"></label>
                         <p className="ms-3">Veg Only</p>
                     </div> */}
 
-                    <div className="row">
+                    <div className="row mt-3">
                         {
                             dishes.map((dish, index) => {
                                 return (
@@ -114,6 +123,12 @@ const Homepage = () => {
             <button className="table-button btn btn-theme rounded-circle py-2">
                 <Link to="/table">
                     <i className="fas fa-shopping-basket text-white"></i>
+                    {
+                        dishesOnTable.length > 0 ?
+                            <span className="item_table_counter">{dishesOnTable.length}</span> :
+                            <></>
+                    }
+
                 </Link>
             </button>
 

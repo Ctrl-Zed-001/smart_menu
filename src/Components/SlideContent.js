@@ -5,7 +5,7 @@ const SlideContent = ({ special }) => {
         <div className="slide_content rounded shadow">
             <div className="card border-0 shadow-sm">
 
-                <div className="card_image_sec" style={{ backgroundImage: `url(${special.image})`, backgroundSize: 'cover', height: '11.25rem', width: '100%' }}>
+                <div className="card_image_sec" style={{ backgroundImage: `url(${special.image})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '8.25rem', width: '100%' }}>
                     <div className="best-selling-tag badge bg-danger mt-2 ms-2">Best Selling</div>
                 </div>
                 <div className="card_info_sec p-3">
